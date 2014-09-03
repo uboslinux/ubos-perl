@@ -1,6 +1,6 @@
 pkgname=$(basename $(pwd))
 pkgver=0.20
-pkgrel=1
+pkgrel=2
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
@@ -14,6 +14,7 @@ md5sums=('5b8f5dbf664edbe7b67fe01d9f1091b4')
 
 build() (
   cd "$srcdir/$_dist-$pkgver"
+  patch $startdir/src/Log-Journald-0.20/lib/Log/Log4perl/Appender/Journald.pm < $startdir/level-translation.patch
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
   export PERL_MM_USE_DEFAULT=1 MODULEBUILDRC=/dev/null
   /usr/bin/perl Build.PL
