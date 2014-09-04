@@ -1,11 +1,9 @@
---- Journald.pm	2014-03-15 07:32:35.000000000 +0000
-+++ Journald.fixed.pm	2014-09-03 21:04:13.820069591 +0000
-@@ -58,7 +58,7 @@
- 	}
- 
- 	# Rename
--	$log{PRIORITY} = delete $log{LEVEL};
-+	$log{PRIORITY} = 7 - delete $log{LEVEL};
- 
- 	Log::Journald::send (%log) or warn $!;
- }
+59a60,63
+> 	# Add NDC
+> 	my $ndc = Log::Log4perl::NDC->get();
+> 	$log{'NDC'} = $ndc if( $ndc ne '[undef]' );
+> 
+61c65
+< 	$log{PRIORITY} = delete $log{LEVEL};
+---
+> 	$log{PRIORITY} = 7 - delete $log{LEVEL};
