@@ -1,6 +1,6 @@
 pkgname=$(basename $(pwd))
-pkgver=0.20
-pkgrel=3
+pkgver=0.30
+pkgrel=1
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
@@ -9,12 +9,11 @@ license=('GPL' 'PerlArtistic')
 depends=('perl')
 makedepends=('perl-module-build')
 options=('!emptydirs' purge)
-source=("http://search.cpan.org/CPAN/authors/id/L/LK/LKUNDRAK/$_dist-$pkgver.tar.gz")
-md5sums=('5b8f5dbf664edbe7b67fe01d9f1091b4')
+source=("http://search.cpan.org/CPAN/authors/id/L/LK/LKUNDRAK/$_dist-$pkgver.tar")
+md5sums=('fe9395cde438a9949e46608554498748')
 
 build() (
   cd "$srcdir/$_dist-$pkgver"
-  patch $startdir/src/Log-Journald-0.20/lib/Log/Log4perl/Appender/Journald.pm < $startdir/level-translation.patch
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
   export PERL_MM_USE_DEFAULT=1 MODULEBUILDRC=/dev/null
   /usr/bin/perl Build.PL

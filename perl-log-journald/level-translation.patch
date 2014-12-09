@@ -1,9 +1,0 @@
-59a60,63
-> 	# Add NDC
-> 	my $ndc = Log::Log4perl::NDC->get();
-> 	$log{'NDC'} = $ndc if( $ndc ne '[undef]' );
-> 
-61c65
-< 	$log{PRIORITY} = delete $log{LEVEL};
----
-> 	$log{PRIORITY} = 7 - delete $log{LEVEL};
