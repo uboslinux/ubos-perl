@@ -1,6 +1,6 @@
 pkgname=$(basename $(pwd))
 pkgver=0.30
-pkgrel=1
+pkgrel=2
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
