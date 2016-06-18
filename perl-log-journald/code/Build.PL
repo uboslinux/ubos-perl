@@ -3,10 +3,10 @@ use warnings;
 
 use Module::Build;
 
-my $libsystemd_journal_CFLAGS = `pkg-config --cflags libsystemd-journal`
-	or warn 'Could not determine systemd-journal compiler flags';
-my $libsystemd_journal_LDFLAGS = `pkg-config --libs libsystemd-journal`
-	or warn 'Could not determine systemd-journal compiler flags';
+my $libsystemd_CFLAGS = `pkg-config --cflags libsystemd`
+	or warn 'Could not determine systemd compiler flags';
+my $libsystemd_LDFLAGS = `pkg-config --libs libsystemd`
+	or warn 'Could not determine systemd compiler flags';
 
 my $build = Module::Build->new(
 	module_name		=> 'Log::Journald',
@@ -19,8 +19,8 @@ my $build = Module::Build->new(
 			repository	=> 'https://github.com/lkundrak/perl-Log-Journald',
 		}
 	},
-	extra_compiler_flags	=> $libsystemd_journal_CFLAGS,
-	extra_linker_flags	=> $libsystemd_journal_LDFLAGS,
+	extra_compiler_flags	=> $libsystemd_CFLAGS,
+	extra_linker_flags	=> $libsystemd_LDFLAGS,
 	configure_requires		=> {
 		'Module::Build'		=> 0,
 	},

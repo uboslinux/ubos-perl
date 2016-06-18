@@ -1,10 +1,11 @@
 {
    "abstract" : "Send messages to a systemd journal",
    "author" : [
-      "Lubomir Rintel <lkundrak@v3.sk>"
+      "Lubomir Rintel <lkundrak@v3.sk>",
+      "Johannes Ernst <jernst@indiecomputing.com>"
    ],
-   "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4218",
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4007, CPAN::Meta::Converter version 2.132140",
    "license" : [
       "perl_5"
    ],
@@ -40,15 +41,14 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Log-Journald"
+         "web" : "https://github.com/uboslinux/ubos-perl/issues"
       },
       "license" : [
          "http://dev.perl.org/licenses/"
       ],
       "repository" : {
-         "url" : "https://github.com/lkundrak/perl-Log-Journald"
+         "url" : "https://github.com/uboslinux/ubos-perl"
       }
    },
-   "version" : "0.30",
-   "x_serialization_backend" : "JSON::PP version 2.27300"
+   "version" : "0.31"
 }
