@@ -1,0 +1,54 @@
+{
+   "abstract" : "Send messages to a systemd journal",
+   "author" : [
+      "Lubomir Rintel <lkundrak@v3.sk>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Build version 0.4218",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Log-Journald",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::CBuilder" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "Log::Dispatch::Journald" : {
+         "file" : "lib/Log/Dispatch/Journald.pm"
+      },
+      "Log::Journald" : {
+         "file" : "lib/Log/Journald.pm",
+         "version" : "0.30"
+      },
+      "Log::Log4perl::Appender::Journald" : {
+         "file" : "lib/Log/Log4perl/Appender/Journald.pm"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Log-Journald"
+      },
+      "license" : [
+         "http://dev.perl.org/licenses/"
+      ],
+      "repository" : {
+         "url" : "https://github.com/lkundrak/perl-Log-Journald"
+      }
+   },
+   "version" : "0.30",
+   "x_serialization_backend" : "JSON::PP version 2.27300"
+}
