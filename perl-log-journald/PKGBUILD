@@ -16,6 +16,7 @@ build() (
   cd "$startdir/code"
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
   export PERL_MM_USE_DEFAULT=1 MODULEBUILDRC=/dev/null
+  [[ -e ./Build ]] && ./Build clean
   /usr/bin/perl Build.PL
   ./Build
 )
