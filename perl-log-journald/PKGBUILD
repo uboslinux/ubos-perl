@@ -2,7 +2,7 @@
 # as updates there seem to have stopped
 pkgname=$(basename $(pwd))
 pkgver=0.31
-pkgrel=6
+pkgrel=7
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
@@ -16,6 +16,7 @@ build() (
   cd "$startdir/code"
   unset PERL5LIB PERL_MM_OPT PERL_MB_OPT PERL_LOCAL_LIB_ROOT
   export PERL_MM_USE_DEFAULT=1 MODULEBUILDRC=/dev/null
+  [[ -e ./Build ]] && ./Build clean
   /usr/bin/perl Build.PL
   ./Build
 )
