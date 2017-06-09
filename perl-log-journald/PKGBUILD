@@ -2,7 +2,7 @@
 # as updates there seem to have stopped
 pkgname=$(basename $(pwd))
 pkgver=0.31
-pkgrel=7
+pkgrel=8
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
