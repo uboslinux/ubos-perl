@@ -1,8 +1,9 @@
 # Forked from https://github.com/lkundrak/perl-Log-Journald,
 # as updates there seem to have stopped
+maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 pkgver=0.31
-pkgrel=11
+pkgrel=12
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
