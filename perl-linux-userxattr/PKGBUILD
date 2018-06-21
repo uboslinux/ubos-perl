@@ -1,0 +1,34 @@
+maintainer="http://indiecomputing.com/"
+developer="https://metacpan.org/author/OPI"
+pkgname=$(basename $(pwd))
+pkgver=0.02
+pkgrel=1
+pkgdesc='Support for extended file attributes on Linux'
+_dist=Log-Journald
+arch=('any')
+url="https://metacpan.org/pod/Linux::UserXAttr"
+license=('PerlArtistic')
+depends=('perl')
+source=("https://cpan.metacpan.org/authors/id/O/OP/OPI/Linux-UserXAttr-${pkgver}.tar.gz")
+sha512sums=('6fe6375dcc9a53966524ff050862b991a7f806182217e95bb579a997846578f87a975e96897db6ce0363dd4b9b08544b83ea30153e864af03b2d004e314338d1')
+_vendor_perl=$(perl -V::vendorarch: | sed -e "s![' ]!!g")
+
+prepare() {
+    cd ${srcdir}/Linux-UserXAttr-${pkgver}
+    PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor
+}
+
+build() {
+    cd ${srcdir}/Linux-UserXAttr-${pkgver}
+    make
+}
+
+check() {
+    cd ${srcdir}/Linux-UserXAttr-${pkgver}
+    make test
+}
+
+package() {
+    cd ${srcdir}/Linux-UserXAttr-${pkgver}
+    make install DESTDIR="$pkgdir"
+}
