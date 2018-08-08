@@ -1,0 +1,11 @@
+--- UserXAttr.xs	2011-03-08 17:58:25.000000000 +0000
++++ UserXAttr.new.xs	2018-08-08 23:48:30.835811928 +0000
+@@ -4,7 +4,7 @@
+ 
+ #include "ppport.h"
+ #include <sys/types.h>
+-#include <attr/xattr.h>
++#include <linux/xattr.h>
+ 
+ static inline int handle2fd(SV *sv)
+ {
