@@ -1,0 +1,46 @@
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Allan McRae <allan@archlinux.org>
+# Contributor: Andrew Simmons <andrew.simmons@gmail.com>
+#
+# From Arch, with an extra patch. Filed upstream.
+
+pkgname=perl-archive-zip
+pkgver=1.65
+pkgrel=2
+pkgdesc="Provide a perl interface to ZIP archive files"
+arch=('any')
+license=('GPL' 'PerlArtistic')
+url="https://search.cpan.org/dist/Archive-Zip/"
+depends=('perl')
+checkdepends=('perl-test-mockmodule')
+options=('!emptydirs')
+source=(https://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Archive-Zip-${pkgver}.tar.gz)
+sha512sums=('8ce6d4192411605f7416517384a544709ec596dcf5f627e2f1e2c59a9ca2d14de65bc680ea3bbbcc2f67bb536203ca458c5e916171fc7ebe3abfbe27948c3c31')
+
+releasepage=(
+    'https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/perl-archive-zip'
+)
+pkgverforked=('1,65-1')
+
+prepare(){
+  cd Archive-Zip-${pkgver}/lib/Archive/Zip
+
+  patch < ../../../../../fix-extract-member-return.patch
+}
+
+build() {
+  cd Archive-Zip-${pkgver}
+  perl Makefile.PL INSTALLDIRS=vendor
+  make
+}
+
+check() {
+  cd Archive-Zip-${pkgver}
+  make test
+}
+
+
+package() {
+  cd Archive-Zip-${pkgver}
+  make DESTDIR="${pkgdir}" install
+}
