@@ -3,7 +3,7 @@
 maintainer="http://indiecomputing.com/"
 pkgname=$(basename $(pwd))
 pkgver=0.31
-pkgrel=16
+pkgrel=17
 pkgdesc='Log to systemd from Perl'
 _dist=Log-Journald
 arch=('any')
