@@ -1,6 +1,5 @@
 Log-Journald-*.tar*
-perl-log-journald-*-any.pkg.tar.xz
-perl-log-journald-*-any.pkg.tar.xz.sig
+perl-log-journald-*-any.pkg*
 pkg/
 src/
 Build
