@@ -2,11 +2,12 @@
 # Contributor: Allan McRae <allan@archlinux.org>
 # Contributor: Andrew Simmons <andrew.simmons@gmail.com>
 #
-# From Arch, with an extra patch. Filed upstream.
+# From Arch, with an extra patch to fix https://github.com/uboslinux/ubos-admin/issues/803
+# See also https://github.com/redhotpenguin/perl-Archive-Zip/issues/86
 
 pkgname=perl-archive-zip
-pkgver=1.65
-pkgrel=3
+pkgver=1.68
+pkgrel=3.1
 pkgdesc="Provide a perl interface to ZIP archive files"
 arch=('any')
 license=('GPL' 'PerlArtistic')
@@ -15,17 +16,15 @@ depends=('perl')
 checkdepends=('perl-test-mockmodule')
 options=('!emptydirs')
 source=(https://search.cpan.org/CPAN/authors/id/P/PH/PHRED/Archive-Zip-${pkgver}.tar.gz)
-sha512sums=('8ce6d4192411605f7416517384a544709ec596dcf5f627e2f1e2c59a9ca2d14de65bc680ea3bbbcc2f67bb536203ca458c5e916171fc7ebe3abfbe27948c3c31')
+sha512sums=('40c3ba26b1c27a8b15b919934e7fcd531f208bec73de3454e123ac1fb771831e287b8fade421be40e243498beb6dad9b6133ef07d2e5d407afbd1f3d6a30b916')
 
-releasepage=(
-    'https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/perl-archive-zip'
-)
-pkgverforked=('1,65-1')
+releasepage=('https://metacpan.org/pod/Archive::Zip')
+pkgverforked=('1.68-3')
 
 prepare(){
   cd Archive-Zip-${pkgver}/lib/Archive/Zip
 
-  patch < ../../../../../fix-extract-member-return.patch
+  patch < ../../../../../dont-create-symlink-when-creating-archive.patch
 }
 
 build() {

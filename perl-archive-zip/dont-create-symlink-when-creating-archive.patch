@@ -1,0 +1,42 @@
+--- Member.pm	2020-03-12 17:57:30.000000000 +0000
++++ Member.pm.new	2021-04-18 04:10:01.122089817 +0000
+@@ -1397,27 +1397,20 @@
+     my $self     = shift;
+     my $fhOrName = shift;
+ 
+-    if ($self->isSymbolicLink() && OS_SUPPORTS_SYMLINK) {
+-        my $chunkSize = $Archive::Zip::ChunkSize;
+-        my ($outRef, $status) = $self->readChunk($chunkSize);
+-        symlink($$outRef, $fhOrName)
+-          or return _ioError("creating symbolic link");
+-    } else {
+-        return AZ_OK if ($self->uncompressedSize() == 0);
+-        my $status;
+-        my $chunkSize = $Archive::Zip::ChunkSize;
+-        while ($self->_readDataRemaining() > 0) {
+-            my $outRef;
+-            ($outRef, $status) = $self->readChunk($chunkSize);
+-            return $status if ($status != AZ_OK and $status != AZ_STREAM_END);
++    return AZ_OK if ($self->uncompressedSize() == 0);
++    my $status;
++    my $chunkSize = $Archive::Zip::ChunkSize;
++    while ($self->_readDataRemaining() > 0) {
++        my $outRef;
++        ($outRef, $status) = $self->readChunk($chunkSize);
++        return $status if ($status != AZ_OK and $status != AZ_STREAM_END);
+ 
+-            if (length($$outRef) > 0) {
+-                $self->_print($fhOrName, $$outRef)
+-                  or return _ioError("write error during copy");
+-            }
+-
+-            last if $status == AZ_STREAM_END;
++        if (length($$outRef) > 0) {
++            $self->_print($fhOrName, $$outRef)
++              or return _ioError("write error during copy");
+         }
++
++        last if $status == AZ_STREAM_END;
+     }
+     return AZ_OK;
+ }
