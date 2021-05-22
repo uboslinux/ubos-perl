@@ -3,12 +3,12 @@
 # Maintainer: Charles Mauch <cmauch@gmail.com>
 # Maintainer: Aaron Bishop <erroneous@gmail.com>
 
-pkgverforked=('4.17-11')
+pkgverforked=('4.17-13')
 releasepage=('https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=perl-www-curl')
 
 pkgname=perl-www-curl
 pkgver=4.17
-pkgrel=11.2
+pkgrel=13
 pkgdesc="Perl/CPAN Module WWW::Curl"
 arch=('x86_64')
 url="https://search.cpan.org/dist/WWW-Curl/"
