@@ -3,11 +3,12 @@
 # Contributor: Andrew Simmons <andrew.simmons@gmail.com>
 #
 # From Arch, with an extra patch to fix https://github.com/uboslinux/ubos-admin/issues/803
-# See also https://github.com/redhotpenguin/perl-Archive-Zip/issues/86
+# See also https://github.com/redhotpenguin/perl-Archive-Zip/issues/86 and
+# https://github.com/redhotpenguin/perl-Archive-Zip/issues/81#issuecomment-644996750
 
 pkgname=perl-archive-zip
 pkgver=1.68
-pkgrel=3.2
+pkgrel=3.3
 pkgdesc="Provide a perl interface to ZIP archive files"
 arch=('any')
 license=('GPL' 'PerlArtistic')
