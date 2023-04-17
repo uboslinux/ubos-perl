@@ -1,0 +1,11 @@
+--- Makefile.PL.org	2023-04-08 21:57:55.118670839 +0000
++++ Makefile.PL	2023-04-08 21:58:44.425685332 +0000
+@@ -120,7 +120,7 @@
+     close H_IN;
+     open (H, "<", $curl_h) or die ("Cannot open $curl_h: ".$!);
+     while(<H>) {
+-        if (/^#define (CURL[A-Za-z0-9_]*)/) {
++        if (/^#define (CURL[A-Za-z0-9_]*)[[:blank:]]/) {
+             push @syms, $1;
+         }
+     }
