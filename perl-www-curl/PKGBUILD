@@ -3,12 +3,12 @@
 # Maintainer: Charles Mauch <cmauch@gmail.com>
 # Maintainer: Aaron Bishop <erroneous@gmail.com>
 
-pkgverforked=('4.17-15')
+pkgverforked=('4.17-17')
 releasepage=('https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=perl-www-curl')
 
 pkgname=perl-www-curl
 pkgver=4.17
-pkgrel=16.1
+pkgrel=17
 pkgdesc="Perl/CPAN Module WWW::Curl"
 arch=('x86_64')
 url="https://search.cpan.org/dist/WWW-Curl/"
@@ -16,15 +16,14 @@ license=("GPL" "PerlArtistic")
 depends=("curl")
 options=('!emptydirs')
 source=("https://search.cpan.org/CPAN/authors/id/S/SZ/SZBALINT/WWW-Curl-${pkgver}.tar.gz"
-        'curl-7.71.0.patch')
+        'makefile.patch')
 sha256sums=('52ffab110e32348d775f241c973eb56f96b08eedbc110d77d257cdb0a24ab7ba'
-            'da51d5f2a2993dd33f5a7baf358a61086440abb50e4dd3ca1f4939ea262d3cc2')
+            'f0965b7b820c7d16722dad75f00007ff0b17adacce172efd3a81f736ecb9ec0e')
 
 prepare() {
   cd WWW-Curl-${pkgver}
 
-  patch -Np1 -i ../curl-7.71.0.patch
-  patch < ../../curl8.patch
+  patch -Np1 -i ../makefile.patch
 }
 
 build() {
